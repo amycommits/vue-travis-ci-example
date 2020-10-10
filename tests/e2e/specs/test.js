@@ -2,7 +2,7 @@
 
 describe('My First Test', () => {
   it('Visits the app root url', () => {
-    cy.visit('http://localhost:40541')
+    cy.visit('/')
     cy.contains('0')
   })
 })
