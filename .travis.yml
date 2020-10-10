@@ -22,7 +22,7 @@ install:
 script:
   - npm run test:unit
   - npm run start:ci &
-  - npm run cy:run
+  - npm run cy:run & wait-on http://localhost:8080
   # after all tests finish running we need
   # to kill all background jobs (like "npm start &")
   - kill $(jobs -p) || true
