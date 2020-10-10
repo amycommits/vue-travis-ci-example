@@ -21,4 +21,9 @@ install:
   - npm ci
 script:
   - npm run test:unit
-  - npm run ci
+  - $(npm bin)/print-env TRAVIS
+  - npm run start:ci &
+  - npm run cy:run
+  # after all tests finish running we need
+  # to kill all background jobs (like "npm start &")
+  - kill $(jobs -p) || true
